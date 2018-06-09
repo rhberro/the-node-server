@@ -1,0 +1,50 @@
+
+{
+  "name": "the-node-server",
+  "version": "1.0.0",
+  "description": "A server boilerplate using Node.js, Sequelize and many other useful libraries.",
+  "license": "MIT",
+  "author": {
+    "email": "rhberro@gmail.com",
+    "name": "Rafael Henrique Berro",
+    "url": "https://github.com/rhberro"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rhberro/the-node-server"
+  },
+  "bugs": {
+    "url": "https://github.com/rhberro/the-node-server/issues"
+  },
+  "keywords": [
+    "server",
+    "node",
+    "boilerplate"
+  ],
+  "engines": {
+    "node": ">=8.9.4",
+    "npm": ">=5.6.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "mysql2": "^1.5.3",
+    "sequelize": "^4.24.0",
+    "sequelize-cli": "^4.0.0"
+  },
+  "scripts": {
+    "start": "NODE_PATH=. nodemon Infra/server/server.js",
+    "create:migration": "sequelize migration:create --name",
+    "create:seed": "sequelize seed:create --name",
+    "database:migrate": "sequelize db:migrate",
+    "database:migrate:undo": "sequelize db:migrate:undo:all",
+    "database:seed": "sequelize db:seed:all",
+    "database:seed:undo": "sequelize db:seed:undo:all",
+    "database:refresh": "yarn database:seed:undo && yarn database:migrate:undo && yarn database:migrate && yarn database:seed"
+  },
+  "devDependencies": {
+    "dotenv": "^5.0.1",
+    "nodemon": "^1.17.2"
+  }
+}
